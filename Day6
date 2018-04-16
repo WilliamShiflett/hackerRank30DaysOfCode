@@ -1,0 +1,25 @@
+#Get number of test cases
+numberOfTestCases = int(input())
+
+#First Constraint: There must be 1 to 10 test cases:
+if 1<=numberOfTestCases<=10:
+
+    #Loop through all test cases
+    for i in range(numberOfTestCases):
+    
+        #Read in test case number "i" as string
+        testCasei=str(input())
+        
+        #Second Constraint: Strings must be 2 to 10,000 characters long:
+        if 2<=len(testCasei)<=10000:
+        
+            #Print even and odd strings, separated by a space, on a single line
+            #This uses the array index format [n::m], where n is the starting point and m is the interval
+            print(testCasei[0::2],testCasei[1::2])
+        else:
+            print("Error: Check length of strings")
+else:
+    print("Error: Check number of test cases")
+        
+        
+
