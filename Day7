@@ -1,0 +1,50 @@
+
+import sys
+
+#Get size of array
+n = int(input().strip())
+
+#Declare iteration counter
+i = 0
+
+#Create empty list the size of array 
+revList = [None]*n
+
+#First constraint: size of array
+if 1<=n<=1000:
+    
+    #Get array into list format by stripping input and splitting on spaces between integers
+    a = input().strip().split(" ")
+    
+    #Convert list elements from strings into integers
+    for e in a:
+        pos = a.index(e)
+        a[pos] = int(e)
+        
+    #Second constraint: size of integer
+        if 1<=len(e)<=10000:
+            
+            #Find reverse index position
+            revPos = -1*(pos-n+1)
+            revList[revPos] = e    
+            
+        else:
+            print("Error: Check length of one (or more) array integer(s)")
+            
+    #Convert reverse list elements from strings to integers:
+    for e in revList:
+        pos = revList.index(e)
+        revList[pos] = int(e)
+    
+    #Print reverse list elements on a single line
+    for e in revList:
+        print(e, end=" ")
+    
+            
+    
+else:
+    print("Error: Check size of array")
+
+    
+#the code below could also be used to read in the array:
+#arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
