@@ -1,0 +1,31 @@
+#get number of entries in phone book
+n=int(input().strip())
+
+#declare phone number dictonary
+phonebook = {}
+
+#first constraint: number of entries:
+if 1<=n<=(10**5):
+    
+    #collect names and numbers, split into parts on single-space delimiter, add to dictionary
+    for i in range(n):
+        name, num = (input().strip()).split(" ")
+        phonebook[name] = num
+
+else:
+    print("Error: check number of entries")
+    
+#set up end of file finder
+try:
+    #loop to read as many queries as there are after the names and numbers- end program if not 
+    while True:
+        q = str(input().strip())
+        if not q:
+            break
+        #find name and number, print 
+        if q in phonebook:
+            print(q+"="+phonebook[q])
+        else:
+            print("Not found")
+except EOFError:
+	pass
