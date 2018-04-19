@@ -1,0 +1,25 @@
+#import sys module
+
+import sys
+
+#create recursive factorial function
+def factorial(n):
+    #set initial value for factorial as 1
+    fac=1
+    #if integer is less than or equal to one, factorial is equal to 1
+    if n<=1:
+        return 1
+    #constraint: integer between 2 and 12, inclusive
+    elif 2<=n<=12:
+        #recursive function for finding factorial
+        for i in range(n):
+            fac = fac*(n)
+            n   = (n-1)
+        return fac
+    else:
+        print("Error: check range of integer")
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    result = factorial(n)
+    print(result)
