@@ -1,0 +1,41 @@
+#get system module
+import sys
+
+#get initial integer
+n = int(input().strip())
+
+binList = []
+current = 0
+longest = 0
+
+if 1<=n<=(10**6):
+
+    #convert to binary:
+    while n>0:
+        binDigit = n % 2
+        binList.append(int(binDigit))
+        if binDigit == 1:
+            n = n - 1
+        n = int(n/2)
+    
+    #reverse binList
+    binList = binList[::-1]
+
+    
+    for digit in binList:
+        if digit == 1:
+            current = current + 1
+        else:
+            longest = max(current, longest)
+            current = 0
+    
+    print(longest)
+    
+    #for fun, print out binary:
+    #binList2 = map(str, binList)
+    #binary2 = ''.join(binList2)
+    #print(binary2)
+
+
+else:
+    print("Error: check size of integer.")
