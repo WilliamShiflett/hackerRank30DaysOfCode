@@ -1,0 +1,33 @@
+#!/bin/python3
+
+import sys
+
+arr = []
+
+for arr_i in range(6):
+    arr_t = [int(arr_temp) for arr_temp in input().strip().split(' ')]
+    arr.append(arr_t)
+
+v = 0    
+h = 0
+sum_of_lines = 0
+current = 0
+largest = 0
+
+for i in range(4):
+    line1 = arr[v][h:(h+3)]
+    line2 = [arr[v+1][(h+1)]]
+    line3 = arr[v+2][h:(h+3)]
+    line_list = [line1,line2,line3]
+    for line in line_list:
+        sum_of_lines = sum_of_lines + sum(line)
+    if sum_of_lines > current:
+        largest = sum_of_lines
+        sum_of_lines = 0
+    else:
+        largest = max(largest, current)
+        current = 0
+        sum_of_lines = 0
+    print(largest, current)
+    h = h + 1
+    
