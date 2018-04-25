@@ -1,5 +1,6 @@
 #!/bin/python3
 
+
 import sys
 
 arr = []
@@ -11,8 +12,8 @@ for arr_i in range(6):
 v = 0    
 h = 0
 sum_of_lines = 0
-current = 0
-largest = 0
+current = -82
+largest = -82
 
 #row loop
 for i in range(4):
@@ -39,3 +40,6 @@ for i in range(4):
         h = h + 1
     v = v + 1 
 print(largest)
+    
+
+
