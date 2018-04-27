@@ -1,3 +1,12 @@
+class Person:
+	def __init__(self, firstName, lastName, idNumber):
+		self.firstName = firstName
+		self.lastName = lastName
+		self.idNumber = idNumber
+	def printPerson(self):
+		print("Name:", self.lastName + ",", self.firstName)
+		print("ID:", self.idNumber)
+        
 class Student(Person):
     #   Class Constructor
     #   
@@ -11,13 +20,13 @@ class Student(Person):
     def __init__(self, firstName, lastName, idNumber, scores):
         Person.__init__(self, firstName, lastName, idNumber)
         self.scores = scores
+        
 
     #   Function Name: calculate
     #   Return: A character denoting the grade.
-    #
-    # Write your function here
+
     def calculate(self):
-        AVG = (sum(scores)) / 2
+        AVG = (sum(scores)) / len(scores)
         if AVG >= 90:
             letter = "O"
         elif 80 <= AVG < 90:
@@ -32,3 +41,12 @@ class Student(Person):
             letter = "T"
         return letter
         
+line = input().split()
+firstName = line[0]
+lastName = line[1]
+idNum = line[2]
+numScores = int(input()) # not needed for Python
+scores = list( map(int, input().split()) )
+s = Student(firstName, lastName, idNum, scores)
+s.printPerson()
+print("Grade:", s.calculate())
